@@ -157,7 +157,7 @@ function filter() {
 	           dataURL = canvas.toDataURL("image/png"); // this is not working 
 		  var downloadLink = document.createElement('a');
 downloadLink.href = dataURL;
-downloadLink.download = document.getElementById('fonttext').value+'.png';
+downloadLink.download = document.getElementById('filterinput').value+'.png';
 
 document.body.appendChild(downloadLink);
 downloadLink.click();
