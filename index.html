@@ -104,11 +104,12 @@ return returnarray;
 		
 		if (ttext.match(/^fa-/)) {
 			thef = 'FontAwesome';
+			
 		}
 		else {
 			thef = 'Ionicons';
 		}
-		
+		console.log(thef);
 		fontsxy = Math.abs(size)+Math.abs(10);
 		font = fontsxy+'pt '+thef;
 		textsizee = textsize(text,font);
