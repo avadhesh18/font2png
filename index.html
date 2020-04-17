@@ -44,15 +44,15 @@ oninput="filter()"/></div></label>
     window.onload = function(){
       loadPage('fa.css');
 	    document.getElementById("range").oninput = function() {
-  this.style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)'
+  this.style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)';
 	document.getElementById('fontsize').value = this.value;
 		    writetocanvas();
 		    
 };
-    }
+    
 	  
 	  	    document.getElementById("fontsize").oninput = function() {
-  document.getElementById("range").style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)'
+  document.getElementById("range").style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)';
 	document.getElementById("range").value = this.value;
 		    writetocanvas();
 		    
