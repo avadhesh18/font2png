@@ -65,11 +65,22 @@ while (m = s.exec(response)) {
 return returnarray;
 
 }
+	  function textsize(txt, font) {
+    this.element = document.createElement('canvas');
+    this.context = this.element.getContext("2d");
+    this.context.font = font;
+    var eizee = {'width':this.context.measureText(txt).width, 'height':parseInt(this.context.font)};
+    return sizee;
+}
+	  
 	function  writetocanvas(text){
 		 size = document.getElementById('fontsize').value;
+		font = size+'pt FontAwesome';
+		textsize = textsize(text,font);
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
-		
+		canvas.width = textsize['width'];
+		canvas.width = textsize['height'];
   
 
 context.clearRect(0, 0, canvas.width, canvas.height);
@@ -78,11 +89,6 @@ color = document.getElementById('fontcolor').value;
 		
 		  context.fillStyle = color;
 context.font = size+'px FontAwesome';
-		textWidth = context.measureText(text).width;
-		//texth = context.measureText(text).height;
-		txtHeight = parseInt(context.font);
-
-		console.log(textWidth + ' '  + txtHeight);
 		
 		//canvas.width = textWidth;
 		 // canvas.height = txtHeight;
