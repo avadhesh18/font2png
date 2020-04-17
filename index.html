@@ -99,9 +99,10 @@ return returnarray;
 	  
 	function  writetocanvas(){
 		text =  document.getElementById('fonttext').value;
+		ttext =  document.getElementById('filterinput').value;
 		 size = document.getElementById('fontsize').value;
 		
-		if (text.match(/^fa-/)) {
+		if (ttext.match(/^fa-/)) {
 			thef = 'FontAwesome';
 		}
 		else {
