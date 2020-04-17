@@ -55,7 +55,7 @@ oninput="filter()"/></div></label>
 
 	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">fa-'+ k +'</li>';
 	}
-	    ekseif (x.match(/^ion-/)) {
+	    else if (x.match(/^ion-/)) {
 		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">ion-'+ k +'</li>';
 
 	    }
