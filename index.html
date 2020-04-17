@@ -9,15 +9,27 @@
   </head><body>
   <h1>Fonts to PNG - FA2PNG Alternative</h1>
   <i class="fa fa-camera-retro"></i> fa-camera-retro
-  <div id="div"></div>
+  <div id="div" style="display:none;"></div>
   <script>
     window.onload = function(){
       loadPage('fa.css');
     }
   function loadPage(urlToLoad) {
     $('#div').load(urlToLoad, function () {
-        alert('Load was performed.');
+       console.log(readtags($('#div').html));
     });
 }
+    window.readtags = function(response){
+
+s = /.fa-(.*?):before{content:"(.*?)"/g;
+returnarray = [];
+while (m = s.exec(response)) {
+	returnarray[m[1]] = m[2];
+ 
+}
+return returnarray;
+
+}
+
 </script>
   </body></html>
