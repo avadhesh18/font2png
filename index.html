@@ -11,10 +11,11 @@
 	<div id="left"><div class="form">
 				<label class="label">
 					<span class="label">Icon</span>
-		<div class="f_input" onclick="showfonts()">Select an icon</div>
+		
+					<input type="text" name="color" id="filterinput" value="Select an icon" onclick="showfonts()" oninput="filter()"/>
 					<div id="fontswrap" style="display:none">
   <ul id="filterul">
-		<input id="filterinput" type="text" oninput="filter()">
+		
 		</ul></div>
 					<input type="hidden" id="fonttext" name="text" value=""/>
 			</label>
@@ -142,6 +143,39 @@ span.label {
 }
 
 label.label input[type=text], label.label input[type=number],.f_input {
+    width: 100%;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    border: 1px solid #c6c5c5;
+    border-radius: 5px;
+    background: white;
+    font-size: 17px;
+    box-shadow: 0px 0px 1px #c6c5c5;
+}
+			div#fontswrap.show {
+    width: 270px;
+    height: 151px;
+    display: block !important;
+    overflow: auto;
+    position: absolute;
+    background: white;
+    margin-top: 18px;
+    box-shadow: 0px 6px 10px #aeaeae;
+}
+
+li.filterli {
+    list-style-position: inside;
+    list-style-type: none;
+    padding: 5px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul#filterul {
+    margin: 0;
+    padding: 0;
+}
+
+input#filterinput {
     width: 100%;
     padding: 6px 10px;
     box-sizing: border-box;
