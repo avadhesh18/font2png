@@ -50,12 +50,12 @@ oninput="filter()"/></div></label>
 		  	    for (var k in target){
     if (target.hasOwnProperty(k)) {
     
-	if (x.match(/^fa-/)) {
+	if (k.match(/^fa-/)) {
 
 
 	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">fa-'+ k +'</li>';
 	}
-	    else if (x.match(/^ion-/)) {
+	    else if (k.match(/^ion-/)) {
 		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">ion-'+ k +'</li>';
 
 	    }
