@@ -70,8 +70,7 @@ return returnarray;
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		
-  canvas.width = size;
-		  canvas.height = size;
+  
 
 context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
@@ -84,7 +83,12 @@ context.font = size+'pt FontAwesome';
 		txtHeight = parseInt(context.font);
 
 		console.log(textWidth + ' '  + txtHeight);
-context.fillText(text,(canvas.width/2) - (textWidth / 2),(canvas.height/2) - (txtHeight / 2));
+		
+		canvas.width = textWidth;
+		  canvas.height = txtHeight;
+		
+		
+context.fillText(text,0,0);
 		document.getElementById('fontswrap').classList.remove('show');
 }
 function filter() {
