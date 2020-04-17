@@ -75,8 +75,17 @@ return returnarray;
 	  
 	function  writetocanvas(text){
 		 size = document.getElementById('fontsize').value;
+		fonts = size+8;
 		font = size+'pt FontAwesome';
-		textsizee = textsize(text,font);
+		textsizee = textsize(text,fonts);
+		
+for(fonts = fonts; textsizee['width'] <= size; fonts--)
+{
+	textsizee = textsize(text,fonts);
+
+}
+		console.log(textsizee);
+		return false;
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		canvas.width = textsizee['width'];
