@@ -1,9 +1,6 @@
 <!doctype html><html><head>
   <title>Fonts to PNG - Fa2PNG Alternative</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	
- 
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head><body>
@@ -51,6 +48,8 @@ xhr.send(null);
 	  
     window.onload = function(){
 	    ajaxurl('names.dat',function(k) {loaded(k); });
+	     lazycss('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    lazycss('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
 	    document.getElementById("range").oninput = function() {
           document.getElementById("range").style.background = 'linear-gradient(to right, #007efd  0%, #007efd  ' + this.value / (600-1)*100  + '%, #c1c1c1  ' + this.value / (600-1)*100 + '%, #c1c1c1  100%)';	document.getElementById('fontsize').value = this.value;
 		  
@@ -59,6 +58,16 @@ xhr.send(null);
     
 	
 	    
+function lazycss(file) {
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = file
+    var h = document.getElementsByTagName('head')[0];
+    h.parentNode.insertBefore(l, h);
+}
+
+
+   
 
 
 	    
