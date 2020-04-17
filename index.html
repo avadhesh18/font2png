@@ -1,6 +1,8 @@
 <!doctype html><html><head>
   <title>Fonts to PNG - Fa2PNG Alternative</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	
   <script
   src="https://code.jquery.com/jquery-3.5.0.min.js"
   integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
@@ -48,9 +50,18 @@ oninput="filter()"/></div></label>
 		  	    for (var k in target){
     if (target.hasOwnProperty(k)) {
     
-	
+	if (x.match(/^fa-/)) {
+
+
 	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">fa-'+ k +'</li>';
-    }
+	}
+	    ekse if (x.match(/^ion-/)) {
+		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">ion-'+ k +'</li>';
+
+	    }
+	    else {
+	    }
+	}
 }
 
    
@@ -65,6 +76,14 @@ while (m = s.exec(response)) {
 	returnarray[m[1]] = m[2];
  x++;
 }
+	 s2 = /.ion-(.*?):before{content:"\\(.*?)"/g;
+
+	    y = x+1;
+while (j = s2.exec(response)) {
+	returnarray[j[1]] = j[2];
+ y++;
+}
+	
 return returnarray;
 
 }
@@ -79,14 +98,22 @@ return returnarray;
 	function  writetocanvas(){
 		text =  document.getElementById('fonttext').value;
 		 size = document.getElementById('fontsize').value;
+		
+		if (x.match(/^fa-/)) {
+			thef = 'FontAwesome';
+		}
+		else {
+			thef = 'Ionicons';
+		}
+		
 		fontsxy = Math.abs(size)+Math.abs(10);
-		font = fontsxy+'pt FontAwesome';
+		font = fontsxy+'pt '+thef;
 		textsizee = textsize(text,font);
 		//console.log(textsizee);
 		
 		for(fontsx=fontsxy; (textsizee['width'] > size) || (textsizee['height'] > size); fontsx--){
 				fontsx = fontsx-1;
-			font = fontsx+'pt FontAwesome';
+			font = fontsx+'pt '+thef;
 		textsizee = textsize(text,font);
 			console.log(textsizee);
 		}
@@ -116,7 +143,7 @@ color = document.getElementById('fontcolor').value;
 		
 		  context.fillStyle = color;
 context.font = fontsx+'pt FontAwesome';
-		fontr = fontsx+'pt FontAwesome';
+		fontr = fontsx+'pt '+thef;
 	textsizeer = textsize(text,fontr);
 			console.log(textsizeer);	
 		//canvas.width = textWidth;
