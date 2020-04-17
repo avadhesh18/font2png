@@ -63,7 +63,8 @@ function lazycss(file) {
     l.rel = 'stylesheet';
     l.href = file
     var h = document.getElementsByTagName('head')[0];
-    h.parentNode.insertBefore(l, h);
+	h.appendChild(l);
+
 }
 
 
