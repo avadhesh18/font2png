@@ -29,7 +29,7 @@ oninput="filter()"/></div></label>
 					<label class="label"><span class="label">Color</span>
 		<input type="text" name="color" id="fontcolor" value="#ff0000"/>
 			<button class="btn clrd" onclick="writetocanvas('')">Generate</button>
-			<button class="btn">Download PNG</button>
+			<button class="btn" onclick="invokedownload">Download PNG</button>
 				</div>
 			</div>
 	<div id="right">
@@ -131,7 +131,7 @@ context.fillText(text,0,0);
 }
 	  function clickedrow(text){
 		  	document.getElementById('fonttext').value = text;
-		  	document.getElementById('filterinput').value = text;
+		  	document.getElementById('filterinput').value = this.innerHTML;
 		  writetocanvas(text);
 	  }
 function filter() {
@@ -149,6 +149,18 @@ function filter() {
       li[i].style.display = "none";
     }
   }
+}
+	  
+	  function invokedownload(){
+		   canvas = document.getElementById("menuScreen");
+	           dataURL = canvas.toDataURL("image/png"); // this is not working 
+		  var downloadLink = document.createElement('a');
+downloadLink.href = dataURL;
+downloadLink.download = document.getElementById('fonttext').value+'.png';
+
+document.body.appendChild(downloadLink);
+downloadLink.click();
+document.body.removeChild(downloadLink);
 }
 	  function showfonts(){
 	 document.getElementById('fontswrap').classList.toggle('show');
