@@ -10,7 +10,7 @@
   <h1>Fonts to PNG - FA2PNG Alternative</h1>
 	<div id="left">
 				<label class="label"><span class="label">Font</span>
-		<div class="f_input" onclick="selectlist"></div>
+		<div class="f_input" onclick="showfonts()"></div>
 					<input type="hidden" name="text" value=""/>
 			<label>
 		<label class="label"><span class="label">Size</span>
@@ -24,12 +24,10 @@
 	<div id="stage">
  <canvas id="menuScreen" width="320" height="480"></canvas>
 </div>
-
-  <i class="fa fa-camera-retro"></i> fa-camera-retro
-	  <div id="div" ></div>
+ 	  <div id="div" ></div>		<div id="fontswrap"></div>
   <ul id="filterul">
-		<input id="filterinput" type="text">
-		</ul>
+		<input id="filterinput" type="text" oninput="filter">
+		</ul></div>
   <script>
     window.onload = function(){
       loadPage('fa.css');
@@ -62,6 +60,7 @@ return returnarray;
 
 }
 	function  writetocanvas(text){
+		 document.getElementById('fontswrap').classList.toggle('show');
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		
@@ -72,15 +71,12 @@ context.clearRect(0, 0, canvas.width, canvas.height);
 context.font = '80px FontAwesome';
 context.fillText(text,80,200);
 }
-function myFunction() {
-  // Declare variables
+function filter() {
   var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById('filterinput');
   filter = input.value.toUpperCase();
   ul = document.getElementById("filterul");
   li = ul.getElementsByTagName('li');
-
-  // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
     a = li[i];
     txtValue = a.textContent || a.innerText;
@@ -91,5 +87,8 @@ function myFunction() {
     }
   }
 }
+	  function showfonts(){
+	 document.getElementById('fontswrap').classList.toggle('show');
+	  }
 </script>
   </body></html>
