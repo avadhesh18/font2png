@@ -109,11 +109,11 @@ return returnarray;
 		else {
 			thef = 'Ionicons';
 		}
-		console.log(thef);
-		fontsxy = Math.abs(size)+Math.abs(10);
-		font = fontsxy+'pt '+thef;
+		
+		fontsx = Math.abs(size);
+		font = fontsx+'pt '+thef;
 		textsizee = textsize(text,font);
-		//console.log(textsizee);
+		/*
 		
 		for(fontsx=fontsxy; (textsizee['width'] > size) || (textsizee['height'] > size); fontsx--){
 				fontsx = fontsx-1;
@@ -123,10 +123,13 @@ return returnarray;
 		}
 		console.log(textsizee);
 		console.log(fontsx);
-			
+			*/
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
-		if(textsizee['height'] < textsizee['width'])
+		canvas.width = textsizee['width'];
+		canvas.height = textsizee['height'];
+		
+	/*	if(textsizee['height'] < textsizee['width'])
 		{
 		canvas.width = size;
 		theight = textsizee['height']/textsizee['width'];
@@ -139,7 +142,7 @@ var context = canvas.getContext("2d");
 		theight2 = size/theight;
 		canvas.width = theight2;
 		}
-  
+  */
 
 context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
