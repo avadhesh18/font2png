@@ -41,8 +41,8 @@
 		  	    for (var k in target){
     if (target.hasOwnProperty(k)) {
     
-	    
-	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="writetocanvas(\'\\u'+ target[k] +'\')">fa-'+ k +'</div>';
+	    console.log(k);
+	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="writetocanvas(\'\\u'+ target[k] +'\')">fa-'+ k +'</li>';
     }
 }
 
