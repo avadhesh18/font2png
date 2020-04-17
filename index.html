@@ -7,27 +7,31 @@
   crossorigin="anonymous"></script>
 
   </head><body>
-  <h1>Fonts to PNG - FA2PNG Alternative</h1>
-	<div id="left">
-				<label class="label"><span class="label">Font</span>
+  <h1>Fonts to PNG - FA2PNG Alternative</h1><div id="wrap"><div id="mwrap">
+	<div id="left"><div class="form">
+				<label class="label">
+					<span class="label">Font</span>
 		<div class="f_input" onclick="showfonts()"></div>
+					<div id="fontswrap" style="display:none">
+  <ul id="filterul">
+		<input id="filterinput" type="text" oninput="filter()">
+		</ul></div>
 					<input type="hidden" id="fonttext" name="text" value=""/>
-			<label>
-		<label class="label"><span class="label">Size</span>
+			</label>
+		<label class="label">
+			<span class="label">Size</span>
 		<input type="number" name="size" id="fontsize"  value="16"/>
-			<label>
+			</label>
 					<label class="label"><span class="label">Color</span>
-		<input type="color" name="color" id="fontcolor" value="#ff0000"/>
+		<input type="text" name="color" id="fontcolor" value="#ff0000"/>
 			<label>
+				</div>
 			</div>
 	<div id="right">
 	<div id="stage">
  <canvas id="menuScreen" width="320" height="480"></canvas>
 </div>
- 	  <div id="div" style="display:none;"></div>		<div id="fontswrap" style="display:none">
-  <ul id="filterul">
-		<input id="filterinput" type="text" oninput="filter()">
-		</ul></div>
+		<div id="div" style="display:none;"></div>
   <script>
     window.onload = function(){
       loadPage('fa.css');
@@ -105,6 +109,22 @@ h1 {
     margin: 0;
     padding: 5px;
     font-size: 20px;
+}
+	div#left {
+    background: #ececec;
+    float: left;
+    width: 300px;
+    min-height: 100vh;
+}
+
+div#mwwrap {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+div#right {
+    width: calc(100% - 300px);
+    float: left;
 }
 		</style>
   </body></html>
