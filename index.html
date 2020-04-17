@@ -1,7 +1,23 @@
 <!doctype html><html><head>
   <title>Fonts to PNG - Fa2PNG Alternative</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
+
   </head><body>
   <h1>Fonts to PNG - FA2PNG Alternative</h1>
   <i class="fa fa-camera-retro"></i> fa-camera-retro
+  <div id="div"></div>
+  <script>
+    window.onload = function(){
+      loadPage('fa.css');
+    }
+  function loadPage(urlToLoad) {
+    $('#div').load(urlToLoad, function () {
+        alert('Load was performed.');
+    });
+}
+</script>
   </body></html>
