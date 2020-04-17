@@ -1,7 +1,7 @@
 <!doctype html><html><head>
   <title>Fonts to PNG - Fa2PNG Alternative</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	
   <script
   src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -55,11 +55,13 @@ oninput="filter()"/></div></label>
 
 	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">fa-'+ k +'</li>';
 	}
-	    ekse if (x.match(/^ion-/)) {
+	    ekseif (x.match(/^ion-/)) {
 		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">ion-'+ k +'</li>';
 
 	    }
-	    else {
+	    
+	    
+	    {
 	    }
 	}
 }
