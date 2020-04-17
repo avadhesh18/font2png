@@ -78,12 +78,12 @@ context.clearRect(0, 0, canvas.width, canvas.height);
 color = document.getElementById('fontcolor').value;
 		
 		  context.fillStyle = color;
-context.font = size+'px FontAwesome';
+context.font = size+'pt FontAwesome';
 		textWidth = context.measureText(text).width;
 		//texth = context.measureText(text).height;
 		txtHeight = parseInt(context.font);
 
-		
+		console.log(textWidth + ' '  + txtHeight);
 context.fillText(text,(canvas.width/2) - (textWidth / 2),(canvas.height/2) - (txtHeight / 2));
 		document.getElementById('fontswrap').classList.remove('show');
 }
