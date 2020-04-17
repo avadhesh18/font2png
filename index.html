@@ -37,6 +37,18 @@ oninput="filter()"/></div></label>
 </div>
 		<div id="div" style="display:none;"></div>
   <script>
+	  	    function ajaxurl(url,callback) {
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        callback(xhr.responseText);
+    }
+}
+xhr.open('GET', url, true);
+xhr.send(null);
+}
+	  
+	  
     window.onload = function(){
 	    ajaxurl('names.dat',function(k) {loaded(k); });
 	    document.getElementById("range").oninput = function() {
@@ -47,16 +59,7 @@ oninput="filter()"/></div></label>
     
 	
 	    
-	    window.ajaxurl = function(url,callback) {
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-    if (xhr.readyState == XMLHttpRequest.DONE) {
-        callback(xhr.responseText);
-    }
-}
-xhr.open('GET', url, true);
-xhr.send(null);
-}
+
 
 	    
 	  
