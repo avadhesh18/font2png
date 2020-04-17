@@ -9,17 +9,17 @@
   </head><body>
   <h1>Fonts to PNG - FA2PNG Alternative</h1><div id="wrap"><div id="mwrap">
 	<div id="left"><div class="form">
-				<label class="label">
+				<div class="label"><label>
 					<span class="label">Icon</span>
 		<div>
 					<input type="text" name="color" id="filterinput" value="Select an icon" onclick="showfonts()" 
-oninput="filter()"/></div>
+oninput="filter()"/></div></label>
 					<div id="fontswrap" style="display:none">
   <ul id="filterul">
 		
 		</ul></div>
 					<input type="hidden" id="fonttext" name="text" value=""/>
-			</label>
+			</div>
 		<label class="label">
 			<span class="label">Size</span>
 		<input type="number" name="size" id="fontsize"  value="16"/>
@@ -132,7 +132,7 @@ div#right {
     width: calc(100% - 300px);
     float: left;
 }
-			label.label {
+			.label {
     display: block;
     padding: 5px 15px;
 }
@@ -144,7 +144,7 @@ span.label {
     color: #262626;
 }
 
-label.label input[type=text], label.label input[type=number],.f_input {
+.label input[type=text], .label input[type=number],.f_input {
     width: 100%;
     padding: 6px 10px;
     box-sizing: border-box;
