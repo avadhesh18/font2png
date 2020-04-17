@@ -75,7 +75,7 @@ return returnarray;
 	  
 	function  writetocanvas(text){
 		 size = document.getElementById('fontsize').value;
-		fontsx = size+8;
+		fontsx = Math.abs(size)+Math.abs(8);
 		font = fontsx+'pt FontAwesome';
 		textsizee = textsize(text,font);
 		console.log(textsizee);
