@@ -26,7 +26,8 @@ oninput="filter()"/></div></label>
 			</label>
 					<label class="label"><span class="label">Color</span>
 		<input type="text" name="color" id="fontcolor" value="#ff0000"/>
-			<label>
+			<button class="btn clrd" onclick="writetocanvas('')">Generate</button>
+			<button class="btn">Download PNG</button>
 				</div>
 			</div>
 	<div id="right">
@@ -46,7 +47,7 @@ oninput="filter()"/></div></label>
     if (target.hasOwnProperty(k)) {
     
 	
-	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="writetocanvas(\'\\u'+ target[k] +'\')">fa-'+ k +'</li>';
+	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\')">fa-'+ k +'</li>';
     }
 }
 
@@ -73,7 +74,8 @@ return returnarray;
     return sizee;
 }
 	  
-	function  writetocanvas(text){
+	function  writetocanvas(){
+		text =  document.getElementById('fonttext').value;
 		 size = document.getElementById('fontsize').value;
 		fontsxy = Math.abs(size)+Math.abs(10);
 		font = fontsxy+'pt FontAwesome';
@@ -125,6 +127,10 @@ context.font = fontsx+'pt FontAwesome';
 context.fillText(text,0,0);
 		document.getElementById('fontswrap').classList.remove('show');
 }
+	  function clickedrow(text){
+		  	document.getElementById('fonttext').value = text;
+		  writetocanvas(text);
+	  }
 function filter() {
   var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById('filterinput');
