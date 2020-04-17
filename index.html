@@ -86,7 +86,8 @@ return returnarray;
 		textsizee = textsize(text,font);
 			console.log(textsizee);
 		}
-		
+		console.log(textsizee);
+		console.log(fontsx);
 			
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
@@ -110,8 +111,9 @@ context.clearRect(0, 0, canvas.width, canvas.height);
 color = document.getElementById('fontcolor').value;
 		
 		  context.fillStyle = color;
-context.font = fontsx+'px FontAwesome';
-		
+context.font = fontsx+'pt FontAwesome';
+	
+			console.log(textsizee);	
 		//canvas.width = textWidth;
 		 // canvas.height = txtHeight;
 		context.textBaseline = "top";
