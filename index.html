@@ -80,18 +80,20 @@ return returnarray;
 		textsizee = textsize(text,font);
 		console.log(textsizee);
 		
-		for(fontsx=fontsxy; textsizee['width'] > size; fontsx--){
+		for(fontsx=fontsxy; (textsizee['width'] > size) || (textsizee['height'] > size); fontsx--){
 				fontsx = fontsx-1;
 			font = fontsx+'pt FontAwesome';
 		textsizee = textsize(text,font);
-			console.log(textsizee);
+			//console.log(textsizee);
 		}
 		
-			return false;
+			
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
-		canvas.width = textsizee['width'];
-		canvas.height = textsizee['height'];
+		canvas.width = size;
+		theight = textsizee['width']/textsizee['height'];
+		theight2 = size*theight2;
+		canvas.height = theight2;
   
 
 context.clearRect(0, 0, canvas.width, canvas.height);
@@ -104,8 +106,8 @@ context.font = size+'px FontAwesome';
 		//canvas.width = textWidth;
 		 // canvas.height = txtHeight;
 		context.textBaseline = "top";
-  context.textBaseline = 'middle';
-  context.textAlign = "center";
+  context.textBaseline = 'top';
+ 
 
 		
 context.fillText(text,0,0);
