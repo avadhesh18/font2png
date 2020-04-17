@@ -75,32 +75,19 @@ return returnarray;
 	  
 	function  writetocanvas(text){
 		 size = document.getElementById('fontsize').value;
-		fontsx = Math.abs(size)+Math.abs(8);
+		fontsxy = Math.abs(size)+Math.abs(6);
 		font = fontsx+'pt FontAwesome';
 		textsizee = textsize(text,font);
 		console.log(textsizee);
 		
-		if( textsizee['width'] > size){
-			fontsx = fontsx-1;
+		for(fontsx=fontsxy; textsizee['width'] > size; fontsx--){
+				fontsx = fontsx-1;
 			font = fontsx+'pt FontAwesome';
 		textsizee = textsize(text,font);
 			console.log(textsizee);
 		}
-if( textsizee['width'] > size){
-			fontsx = fontsx-1;
-			font = fontsx+'pt FontAwesome';
-		textsizee = textsize(text,font);
-			console.log(textsizee);
-		}
-	if( textsizee['width'] > size){
-			fontsx = fontsx-1;
-			font = fontsx+'pt FontAwesome';
-		textsizee = textsize(text,font);
-			console.log(textsizee);
-		}
-
-		console.log(textsizee);
-		return false;
+		
+			return false;
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		canvas.width = textsizee['width'];
