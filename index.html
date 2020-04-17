@@ -27,7 +27,7 @@
     if (target.hasOwnProperty(k)) {
     
 	    
-	      listdiv.innerHTML += '<div class="menu" data-value="'+ target[k] +'" onclick="writetocanvas(\''+ target[k] +'\')">fa-'+ k +'</div>';
+	      listdiv.innerHTML += '<div class="menu" data-value="'+ target[k] +'" onclick="writetocanvas(\'\u'+ target[k] +'\')">fa-'+ k +'</div>';
     }
 }
 
@@ -36,7 +36,7 @@
 }
     window.readtags = function(response){
 
-s = /.fa-(.*?):before{content:"(.*?)"/g;
+s = /.fa-(.*?):before{content:"\(.*?)"/g;
 returnarray = [];
 	    x = 0;
 while (m = s.exec(response)) {
