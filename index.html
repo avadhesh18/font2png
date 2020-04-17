@@ -44,7 +44,8 @@ oninput="filter()"/></div></label>
     window.onload = function(){
       loadPage('fa.css');
 	    document.getElementById("range").oninput = function() {
-  this.style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)';
+		    percent = this.value / 499*100;
+  this.style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + percent  + '%, #fff ' + percent + '%, white 100%)';
 	document.getElementById('fontsize').value = this.value;
 		    writetocanvas();
 		    
