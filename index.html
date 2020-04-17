@@ -66,17 +66,20 @@ return returnarray;
 
 }
 	function  writetocanvas(text){
-		 
+		 size = document.getElementById('fontsize').value;
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		
+  canvas.width = size;
+		  canvas.height = size;
+
 context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
 color = document.getElementById('fontcolor').value;
-		size = document.getElementById('fontsize').value;
+		
 		  context.fillStyle = color;
 context.font = size+'px FontAwesome';
-context.fillText(text,80,200);
+context.fillText(text,0,0);
 		document.getElementById('fontswrap').classList.remove('show');
 }
 function filter() {
