@@ -38,7 +38,6 @@ oninput="filter()"/></div></label>
 		<div id="div" style="display:none;"></div>
   <script>
     window.onload = function(){
-      loadPage('fa.css');
 	    ajaxurl('names.dat',function(k) {loaded(k); });
 	    document.getElementById("range").oninput = function() {
           document.getElementById("range").style.background = 'linear-gradient(to right, #007efd  0%, #007efd  ' + this.value / (600-1)*100  + '%, #c1c1c1  ' + this.value / (600-1)*100 + '%, #c1c1c1  100%)';	document.getElementById('fontsize').value = this.value;
