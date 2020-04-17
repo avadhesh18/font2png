@@ -43,14 +43,27 @@ oninput="filter()"/></div></label>
   <script>
     window.onload = function(){
       loadPage('fa.css');
+	    ajaxurl('names.dat',function(k) {loaded(k); });
 	    document.getElementById("range").oninput = function() {
-		  
-		 
- document.getElementById("range").style.background = 'linear-gradient(to right, #007efd  0%, #007efd  ' + this.value / (600-1)*100  + '%, #c1c1c1  ' + this.value / (600-1)*100 + '%, #c1c1c1  100%)';	document.getElementById('fontsize').value = this.value;
+          document.getElementById("range").style.background = 'linear-gradient(to right, #007efd  0%, #007efd  ' + this.value / (600-1)*100  + '%, #c1c1c1  ' + this.value / (600-1)*100 + '%, #c1c1c1  100%)';	document.getElementById('fontsize').value = this.value;
 		  
 		    
 };
     
+	
+	    
+	    window.ajaxurl = function(url,callback) {
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        callback(xhr.responseText);
+    }
+}
+xhr.open('GET', url, true);
+xhr.send(null);
+}
+
+	    
 	  
 	  	    document.getElementById("fontsize").oninput = function() {
   document.getElementById("range").style.background = 'linear-gradient(to right, #007efd  0%, #007efd  ' + this.value / (600-1)*100  + '%, #c1c1c1  ' + this.value / (600-1)*100 + '%, #c1c1c1  100%)';
@@ -59,53 +72,9 @@ oninput="filter()"/></div></label>
 		    
 };
     }
-    
-  function loadPage(urlToLoad) {
-    $('#div').load(urlToLoad, function () {
-       target = readtags(document.getElementById('div').innerHTML);
-	    listdiv = document.getElementById('filterul');
-		  	    for (var k in target){
-    if (target.hasOwnProperty(k)) {
-    
-	if (k.match(/^fa-/)) {
-
-
-	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">'+ k +'</li>';
-	}
-	    else if (k.match(/^ion-/)) {
-		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">'+ k +'</li>';
-
-	    }
-	    
-	    
-	    {
-	    }
-	}
-}
-
-   
-    });
-}
-    window.readtags = function(response){
-
-s = /.fa-(.*?):before{content:"\\(.*?)"/g;
-returnarray = [];
-	    x = 0;
-while (m = s.exec(response)) {
-	returnarray['fa-'+m[1]] = m[2];
- x++;
-}
-	 s2 = /.ion-(.*?):before{content:"\\(.*?)"/g;
-
-	    y = x+1;
-while (j = s2.exec(response)) {
-	returnarray['ion-'+j[1]] = j[2];
- y++;
-}
-	
-return returnarray;
-
-}
+    function loaded(r){
+     listdiv.innerHTML  = r;
+    }
 	  function textsize(txt, font) {
     this.element = document.createElement('canvas');
     this.context = this.element.getContext("2d");
