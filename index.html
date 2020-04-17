@@ -9,6 +9,7 @@
   </head><body>
   <h1>Fonts to PNG - FA2PNG Alternative</h1>
   <i class="fa fa-camera-retro"></i> fa-camera-retro
+	  <div id="listdiv" ></div>
   <div id="div" style="display:none;"></div>
   <script>
     window.onload = function(){
@@ -16,18 +17,27 @@
     }
   function loadPage(urlToLoad) {
     $('#div').load(urlToLoad, function () {
-	     console.log(document.getElementById('div').innerHTML);
-       console.log(readtags(document.getElementById('div').innerHTML));
-		   
+       target = readtags(document.getElementById('div').innerHTML);
+	    listdiv = document.getElementById('listdiv');
+		  	    for (var k in target){
+    if (target.hasOwnProperty(k)) {
+         alert("Key is " + k + ", value is " + target[k]);
+	    
+	      listdiv += '<div class="menu" data-value="'+ k +'">'+ target[k] +'</div>';
+    }
+}
+
+   
     });
 }
     window.readtags = function(response){
 
 s = /.fa-(.*?):before{content:"(.*?)"/g;
 returnarray = [];
+	    x = 0;
 while (m = s.exec(response)) {
 	returnarray[m[1]] = m[2];
- 
+ x++;
 }
 return returnarray;
 
