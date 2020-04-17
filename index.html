@@ -86,7 +86,8 @@ context.font = size+'pt FontAwesome';
 		
 		canvas.width = textWidth;
 		  canvas.height = txtHeight;
-		
+		context.textBaseline = "top";
+
 		
 context.fillText(text,0,0);
 		document.getElementById('fontswrap').classList.remove('show');
