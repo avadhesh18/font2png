@@ -49,7 +49,7 @@ oninput="filter()"/></div></label>
     if (target.hasOwnProperty(k)) {
     
 	
-	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',e)">fa-'+ k +'</li>';
+	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">fa-'+ k +'</li>';
     }
 }
 
@@ -129,10 +129,11 @@ context.font = fontsx+'pt FontAwesome';
 context.fillText(text,0,0);
 		document.getElementById('fontswrap').classList.remove('show');
 }
-	  function clickedrow(text,e,j){
+	  function clickedrow(text,e){
 		  	document.getElementById('fonttext').value = text;
 		  console.log(e);
-		   console.log(j);
+		   console.log(e.target);
+		  console.log(e.innerHTML);
 		  	document.getElementById('filterinput').value = e.target.innerHTML;
 		  writetocanvas(text);
 	  }
