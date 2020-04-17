@@ -8,6 +8,10 @@
 
   </head><body>
   <h1>Fonts to PNG - FA2PNG Alternative</h1>
+	<div id="stage">
+ <canvas id="menuScreen" width="320" height="480"></canvas>
+</div>
+
   <i class="fa fa-camera-retro"></i> fa-camera-retro
 	  <div id="listdiv" ></div>
   <div id="div" style="display:none;"></div>
@@ -23,7 +27,7 @@
     if (target.hasOwnProperty(k)) {
     
 	    
-	      listdiv.innerHTML += '<div class="menu" data-value="'+ target[k] +'">fa-'+ k +'</div>';
+	      listdiv.innerHTML += '<div class="menu" data-value="'+ target[k] +'" onclick="writetocanvas(\''+ target[k] +'\')">fa-'+ k +'</div>';
     }
 }
 
@@ -41,6 +45,15 @@ while (m = s.exec(response)) {
 }
 return returnarray;
 
+}
+	  writetocanvas(text){
+	  var canvas = document.getElementById("menuScreen");
+var context = canvas.getContext("2d");
+context.clearRect(0, 0, canvas.width, canvas.height);
+		  context.fillStyle = "#393305";
+context.font = '140px FontAwesome';// You can use any font size of your size.  
+// Motorcycle Icon at x = 80(from the left) and y = 200(from the top)
+context.fillText("\"+text,80,200);
 }
 
 </script>
