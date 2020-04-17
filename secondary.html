@@ -71,10 +71,10 @@ oninput="filter()"/></div></label>
 	if (k.match(/^fa-/)) {
 
 
-	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">'+ k +'</li>';
+	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)"><i class="fa '+ k +'"></i> '+ k +'</li>';
 	}
 	    else if (k.match(/^ion-/)) {
-		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">'+ k +'</li>';
+		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)"><i class="ion '+ k +'"></i> '+ k +'</li>';
 
 	    }
 	    
