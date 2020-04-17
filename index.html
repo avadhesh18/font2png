@@ -11,13 +11,13 @@
 	<div id="left">
 				<label class="label"><span class="label">Font</span>
 		<div class="f_input" onclick="showfonts()"></div>
-					<input type="hidden" name="text" value=""/>
+					<input type="hidden" id="fonttext" name="text" value=""/>
 			<label>
 		<label class="label"><span class="label">Size</span>
-		<input type="number" name="size"  value="16"/>
+		<input type="number" name="size" id="fontsize"  value="16"/>
 			<label>
 					<label class="label"><span class="label">Color</span>
-		<input type="color" name="color"  value="#ff0000"/>
+		<input type="color" name="color" id="fontcolor" value="#ff0000"/>
 			<label>
 			</div>
 	<div id="right">
@@ -66,9 +66,10 @@ var context = canvas.getContext("2d");
 		
 context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
-
-		  context.fillStyle = "#393305";
-context.font = '80px FontAwesome';
+color = document.getElementById('fontcolor').value;
+		size = document.getElementById('fontsize').value;
+		  context.fillStyle = color;
+context.font = size+'px FontAwesome';
 context.fillText(text,80,200);
 }
 function filter() {
