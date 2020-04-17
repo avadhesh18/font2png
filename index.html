@@ -45,7 +45,7 @@ oninput="filter()"/></div></label>
 		  	    for (var k in target){
     if (target.hasOwnProperty(k)) {
     
-	    console.log(k);
+	
 	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="writetocanvas(\'\\u'+ target[k] +'\')">fa-'+ k +'</li>';
     }
 }
@@ -80,7 +80,7 @@ return returnarray;
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		canvas.width = textsizee['width'];
-		canvas.width = textsizee['height'];
+		canvas.height = textsizee['height'];
   
 
 context.clearRect(0, 0, canvas.width, canvas.height);
