@@ -65,7 +65,7 @@ return returnarray;
 
 }
 	function  writetocanvas(text){
-		 document.getElementById('fontswrap').classList.remove('show');
+		 
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
 		
@@ -76,6 +76,7 @@ color = document.getElementById('fontcolor').value;
 		  context.fillStyle = color;
 context.font = size+'px FontAwesome';
 context.fillText(text,80,200);
+		document.getElementById('fontswrap').classList.remove('show');
 }
 function filter() {
   var input, filter, ul, li, a, i, txtValue;
