@@ -78,22 +78,31 @@ return returnarray;
 		fontsxy = Math.abs(size)+Math.abs(10);
 		font = fontsxy+'pt FontAwesome';
 		textsizee = textsize(text,font);
-		console.log(textsizee);
+		//console.log(textsizee);
 		
 		for(fontsx=fontsxy; (textsizee['width'] > size) || (textsizee['height'] > size); fontsx--){
 				fontsx = fontsx-1;
 			font = fontsx+'pt FontAwesome';
 		textsizee = textsize(text,font);
-			//console.log(textsizee);
+			console.log(textsizee);
 		}
 		
 			
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
+		if(textsizee['height'] < textsizee['width'])
+		{
 		canvas.width = size;
 		theight = textsizee['height']/textsizee['width'];
 		theight2 = size*theight;
 		canvas.height = theight2;
+		}
+		else {
+			canvas.width = size;
+		theight = textsizee['height']/textsizee['width'];
+		theight2 = size*theight;
+		canvas.height = theight2;
+		}
   
 
 context.clearRect(0, 0, canvas.width, canvas.height);
