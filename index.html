@@ -53,10 +53,10 @@ oninput="filter()"/></div></label>
 	if (k.match(/^fa-/)) {
 
 
-	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">fa-'+ k +'</li>';
+	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">'+ k +'</li>';
 	}
 	    else if (k.match(/^ion-/)) {
-		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">ion-'+ k +'</li>';
+		    	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="clickedrow(\'\\u'+ target[k] +'\',this)">'+ k +'</li>';
 
 	    }
 	    
@@ -75,14 +75,14 @@ s = /.fa-(.*?):before{content:"\\(.*?)"/g;
 returnarray = [];
 	    x = 0;
 while (m = s.exec(response)) {
-	returnarray[m[1]] = m[2];
+	returnarray['fa-'+m[1]] = m[2];
  x++;
 }
 	 s2 = /.ion-(.*?):before{content:"\\(.*?)"/g;
 
 	    y = x+1;
 while (j = s2.exec(response)) {
-	returnarray[j[1]] = j[2];
+	returnarray['ion-'+j[1]] = j[2];
  y++;
 }
 	
