@@ -185,7 +185,7 @@ context.fillText(text,0,0);
 	  function clickedrow(text,e){
 		  	document.getElementById('fonttext').value = text;
 		
-		  	document.getElementById('filterinput').value = e.innerHTML;
+		  	document.getElementById('filterinput').value = e.innerText;
 		  writetocanvas(text);
 	  }
 function filter() {
