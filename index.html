@@ -80,7 +80,8 @@ color = document.getElementById('fontcolor').value;
 		  context.fillStyle = color;
 context.font = size+'px FontAwesome';
 		textWidth = context.measureText(text).width;
-context.fillText(text,(canvas.width/2) - (textWidth / 2),9);
+		texth = context.measureText(text).height;
+context.fillText(text,(canvas.width/2) - (textWidth / 2),(canvas.height/2) - (texth / 2));
 		document.getElementById('fontswrap').classList.remove('show');
 }
 function filter() {
