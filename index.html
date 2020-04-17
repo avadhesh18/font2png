@@ -16,7 +16,9 @@
     }
   function loadPage(urlToLoad) {
     $('#div').load(urlToLoad, function () {
-       console.log(readtags($('#div').html));
+	     console.log(document.getElementById('div').innerHTML);
+       console.log(readtags(document.getElementById('div').innerHTML));
+		   
     });
 }
     window.readtags = function(response){
