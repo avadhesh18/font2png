@@ -131,10 +131,8 @@ context.fillText(text,0,0);
 }
 	  function clickedrow(text,e){
 		  	document.getElementById('fonttext').value = text;
-		  console.log(e);
-		   console.log(e.target);
-		  console.log(e.innerHTML);
-		  	document.getElementById('filterinput').value = e.target.innerHTML;
+		
+		  	document.getElementById('filterinput').value = e.innerHTML;
 		  writetocanvas(text);
 	  }
 function filter() {
