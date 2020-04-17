@@ -45,11 +45,20 @@ oninput="filter()"/></div></label>
       loadPage('fa.css');
 	    document.getElementById("range").oninput = function() {
   this.style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)'
-	document.getElementById('size').value = this.value;
+	document.getElementById('fontsize').value = this.value;
 		    writetocanvas();
 		    
 };
     }
+	  
+	  	    document.getElementById("fontsize").oninput = function() {
+  document.getElementById("range").style.background = 'linear-gradient(to right, 007efd  0%, 007efd  ' + this.value / (500-1)*100  + '%, #fff ' + this.value / (500-1)*100 + '%, white 100%)'
+	document.getElementById("range").value = this.value;
+		    writetocanvas();
+		    
+};
+    }
+    
   function loadPage(urlToLoad) {
     $('#div').load(urlToLoad, function () {
        target = readtags(document.getElementById('div').innerHTML);
