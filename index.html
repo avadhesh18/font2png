@@ -8,13 +8,28 @@
 
   </head><body>
   <h1>Fonts to PNG - FA2PNG Alternative</h1>
+	<div id="left">
+				<label class="label"><span class="label">Font</span>
+		<div class="f_input" onclick="selectlist"></div>
+					<input type="hidden" name="text" value=""/>
+			<label>
+		<label class="label"><span class="label">Size</span>
+		<input type="number" name="size"  value="16"/>
+			<label>
+					<label class="label"><span class="label">Color</span>
+		<input type="color" name="color"  value="#ff0000"/>
+			<label>
+			</div>
+	<div id="right">
 	<div id="stage">
  <canvas id="menuScreen" width="320" height="480"></canvas>
 </div>
 
   <i class="fa fa-camera-retro"></i> fa-camera-retro
 	  <div id="listdiv" ></div>
-  <div id="div" style="display:none;"></div>
+  <ul id="filterul">
+		<input id="filterinput" type="text">
+		</ul>
   <script>
     window.onload = function(){
       loadPage('fa.css');
@@ -22,12 +37,12 @@
   function loadPage(urlToLoad) {
     $('#div').load(urlToLoad, function () {
        target = readtags(document.getElementById('div').innerHTML);
-	    listdiv = document.getElementById('listdiv');
+	    listdiv = document.getElementById('filterul');
 		  	    for (var k in target){
     if (target.hasOwnProperty(k)) {
     
 	    
-	      listdiv.innerHTML += '<div class="menu" data-value="'+ target[k] +'" onclick="writetocanvas(\'\\u'+ target[k] +'\')">fa-'+ k +'</div>';
+	      listdiv.innerHTML += '<li class="filterli" data-value="'+ target[k] +'" onclick="writetocanvas(\'\\u'+ target[k] +'\')">fa-'+ k +'</div>';
     }
 }
 
@@ -57,6 +72,24 @@ context.clearRect(0, 0, canvas.width, canvas.height);
 context.font = '80px FontAwesome';
 context.fillText(text,80,200);
 }
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('filterinput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("filterul");
+  li = ul.getElementsByTagName('li');
 
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
 </script>
   </body></html>
