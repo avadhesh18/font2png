@@ -79,12 +79,26 @@ return returnarray;
 		font = fontsx+'pt FontAwesome';
 		textsizee = textsize(text,fonts);
 		console.log(textsizee);
-for(fonts = fontsx; textsizee['width'] <= size; fonts--)
-{
-	
-	textsizee = textsize(text,fonts);
-console.log(textsizee);
-}
+		
+		if( textsizee['width'] > size){
+			fontsx = fontsx-1;
+			font = fontsx+'pt FontAwesome';
+		textsizee = textsize(text,fonts);
+			console.log(textsizee);
+		}
+if( textsizee['width'] > size){
+			fontsx = fontsx-1;
+			font = fontsx+'pt FontAwesome';
+		textsizee = textsize(text,fonts);
+			console.log(textsizee);
+		}
+	if( textsizee['width'] > size){
+			fontsx = fontsx-1;
+			font = fontsx+'pt FontAwesome';
+		textsizee = textsize(text,fonts);
+			console.log(textsizee);
+		}
+
 		console.log(textsizee);
 		return false;
 	  var canvas = document.getElementById("menuScreen");
