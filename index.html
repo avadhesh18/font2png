@@ -49,9 +49,12 @@ return returnarray;
 	function  writetocanvas(text){
 	  var canvas = document.getElementById("menuScreen");
 var context = canvas.getContext("2d");
+		
 context.clearRect(0, 0, canvas.width, canvas.height);
+		context.beginPath();
+
 		  context.fillStyle = "#393305";
-context.font = '140px FontAwesome';
+context.font = '80px FontAwesome';
 context.fillText(text,80,200);
 }
 
