@@ -58,14 +58,19 @@ oninput="filter()"/></div></label>
 		<div class="footer">
 		&copy;2020 Avadhesh Tech | <a href="/">F2PNG</a> | <a href="/terms.html">Home</a>
 		</div>
-<script>
+<script>	  	    function ajaxurl(url,callback) {
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        callback(xhr.responseText);
+    }
+}
+xhr.open('GET', url, true);
+xhr.send(null);
+}
+	  
 
-function ajaxurl(url,callback) { var xhr = new XMLHttpRequest(); xhr.onreadystatechange = function() {
- if (xhr.readyState == XMLHttpRequest.DONE) {
- callback(xhr.responseText);
- } } xhr.open("GET", url, true); xhr.send(null); }
-
-window.onload = function(){
+	window.onload = function(){
 ajaxurl("names.dat",function(k) {loaded(k); });
  lazycss("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
  lazycss("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
