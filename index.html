@@ -282,13 +282,23 @@ document.body.removeChild(downloadLink);
 
 h1 {
     text-align: center;
-    background: #ddd;
     margin: 0;
-    padding: 10px 5px;
+    padding: 0px;
     font-size: 20px;
-    background: linear-gradient(#e2e2e2,#cccccc);
     color: #333;
     font-weight: 600;
+}
+			.header {text-align: center;background: #ddd;margin: 0;padding: 10px 5px;font-size: 20px;background: linear-gradient(#e2e2e2,#cccccc);color: #333;font-weight: 600;clear: both;}
+
+.hwrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.logo {
+    float: left;
 }
 	div#left {
     background: #ececec;
@@ -446,5 +456,9 @@ div#right {
 		  padding-top: 20px !important;
 	}
 			}
+			.logo {
+    float: none;
+    padding: 4px 0px;
+}
 		</style>
   </body></html>
