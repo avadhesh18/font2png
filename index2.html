@@ -105,7 +105,6 @@ function
 writetocanvas(){	text =document.getElementById('fonttext').value;
 ttext =document.getElementById('filterinput').value;	 size = document.getElementById('fontsize').value;		if (ttext.match(/^fa-/)) {		thef = 'FontAwesome';			}	else {		thef = 'Ionicons';	}		fontsx = Math.abs(size);	font = fontsx+'pt '+thef;	textsizee = textsize(text,font);
 var canvas = document.getElementById("menuScreen"); var context = canvas.getContext("2d");	canvas.width = textsizee['width'];	canvas.height = textsizee['height']; 
- */
 context.clearRect(0, 0, canvas.width, canvas.height);	context.beginPath(); color = document.getElementById('fontcolor').value;		
 context.fillStyle = color; context.font = fontsx+'pt '+thef;	fontr = fontsx+'pt '+thef;textsizeer = textsize(text,fontr);		console.log(textsizeer);		//canvas.width = textWidth;	 // canvas.height = txtHeight;	context.textBaseline = "top";
  context.textBaseline = 'top';
