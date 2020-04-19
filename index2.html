@@ -91,7 +91,7 @@ var sizee = {"width":this.context.measureText(txt).width, "height":parseInt(this
 return sizee; }
 function writetocanvas(){ text =document.getElementById("fonttext").value;
 ttext =document.getElementById("filterinput").value;  size = document.getElementById("fontsize").value;  if (ttext.match(/^fa-/)) {  thef = "FontAwesome";   } else {  thef = "Ionicons"; }  fontsx = Math.abs(size); font = fontsx+"pt "+thef; textsizee = textsize(text,font);
-var canvas = document.getElementById("menuScreen"); var context = canvas.getContext("2d"); canvas.width = Math.ceil(textsizee["width"]); canvas.height = Math.ceil(textsizee["height"]);
+var canvas = document.getElementById("menuScreen"); var context = canvas.getContext("2d"); canvas.width = Math.ceil(textsizee["width"]+5); canvas.height = Math.ceil(textsizee["height"]+5);
 context.clearRect(0, 0, canvas.width, canvas.height); context.beginPath(); color = document.getElementById("fontcolor").value;
 context.fillStyle = color; context.font = fontsx+"pt "+thef; fontr = fontsx+"pt "+thef;textsizeer = textsize(text,fontr);  console.log(textsizeer); 
 context.textBaseline = "top";
