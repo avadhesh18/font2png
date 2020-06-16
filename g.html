@@ -15,12 +15,13 @@ div#ground {
     background: transparent;
     position: relative;
     margin: 0 auto;
+	overflow:hidden;
 }
 
 div#goal {
     position: absolute;
     background: red;
-    width: 80%;
+    width: 70%;
     height: 8%;
     margin: 0 auto;
     left: 0;
@@ -144,13 +145,27 @@ div#scoreboard {
 <div id="goal"></div>
 <div id="keeper"></div>
 <div id="ball"></div>
-<div id="scoreboard"><span id="score">0</span></div>
+<div id="scoreboard">
+<textarea id="text"></textarea>
+<span id="score">0</span></div>
 </div>
 <div id="popup">
 <div id="popup_head">GOAL</div>
     <div id="popup_text" onclick="next()">Next shot!</div>
 </div>
 <script>
+if(window.DeviceMotionEvent){
+ // window.addEventListener("devicemotion", motion, false);
+}else{
+  console.log("DeviceMotionEvent is not supported");
+}
+
+function motion(event){
+document.getElementById('text').innerHTML= "Accelerometer: "    + event.accelerationIncludingGravity.x + ", "    + event.accelerationIncludingGravity.y + ", "    + event.accelerationIncludingGravity.z
+  ;
+}
+
+
 
 var score = 0;
 window.speedsc = 10;
@@ -184,18 +199,21 @@ if(speedsc == 0){
 speedsc = 0.45;
 }
 
-	document.getElementById('keeper').style.animation = 'mm '+ speedsc +'s linear infinite';
+
 	}
 	else {
 		document.getElementById('popup_head').innerHTML="FAIL!";
 		document.getElementById('popup_text').innerHTML="Restart!";
 	 speedsc = 8;
+	 score= 0;
 		document.getElementById('score').innerHTML = 0;
-	document.getElementById('keeper').style.animation = 'mm '+ 8 +'s infinite';
+	
 	}
 	
 }
 function next() {
+	document.getElementById('keeper').style.animation = 'mm '+ speedsc +'s infinite';
+		document.getElementById('keeper').style.animationPlayState = 'running';
 document.getElementById('popup').style.display="none";  
 	document.getElementById('ball').style.transform = 'translate('+0 +'px,'+0 +'px)';
 }
@@ -226,6 +244,7 @@ function touching(d1,d2){
                                               
 window.storiesswiped = function(swipe,xd,xu,yd,yu) {
 	 console.log(swipe);
+	 if(swipe == "up"){
 	dw =  document.getElementById('ground').offsetWidth;
 	dh =  document.getElementById('ground').offsetHeight;
 	
@@ -266,7 +285,7 @@ var cint =   setInterval(function() {
 	dhp = njt/dh;
 	
 	dhp = dhp*100;
-	if(dhp <= 12 && dhp >= 8){
+	if(dhp <= 12 && dhp >= 7.5){
 	console.log('--'+dhp);
 	let keeper_c = document.getElementById('keeper').getBoundingClientRect();
 let ball_c = document.getElementById('ball').getBoundingClientRect();
@@ -275,14 +294,34 @@ let ball_c = document.getElementById('ball').getBoundingClientRect();
 
 var t = touching(ball_c,keeper_c) // should return whether they are touching
 if(t){
+	document.getElementById('keeper').style.animationPlayState = 'paused';
 console.log(t);
 	clearInterval(cint);
 	setgame('save');
+
 }
 	}
 	if(dhp < 8){
-	clearInterval(cint);
-	setgame('goal');
+		clearInterval(cint);
+		let goalpost_c = document.getElementById('goal').getBoundingClientRect();
+		let balll_c = document.getElementById('ball').getBoundingClientRect();
+		let ball_xp = balll_c.x + Math.abs(balll_c.width/2);
+		let gp_xx = goalpost_c.x+goalpost_c.width;
+		
+		console.log("aa",goalpost_c.x,ball_xp,balll_c.x);
+	if(goalpost_c.x  > ball_xp ||   gp_xx < ball_xp  ){
+		setgame('fail');
+	
+	}
+	else {
+		setgame('goal');
+	
+	}
+
+	
+
+
+	
 	}
 	
   }, 20);
@@ -295,6 +334,8 @@ console.log(t);
 
 	// console.log(xdp);
 	// console.log(xup);
+	
+	}
 		if(swipe == 'left'){
 		
 		}
@@ -319,7 +360,7 @@ window.handleTouchMove = function(evt) {
     var yDiff = yDown - yUp;
 var swipe = "none";
 //console.log(Math.abs( xDiff )+Math.abs( yDiff ));
-    if(Math.abs( xDiff )+Math.abs( yDiff )>5){ //to deal with to short swipes
+    if(Math.abs( xDiff )+Math.abs( yDiff )>1){ //to deal with to short swipes
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
